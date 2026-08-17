@@ -1,0 +1,20 @@
+{
+  "warns": {
+    "-1004460790540": {
+      "8556319853": 1
+    }
+  },
+  "welcome": {
+    "7462112526": {
+      "enabled": true,
+      "msg": "Welcome to *The Perimeter*, {first}! \u26a1 To get unmuted, tap the verification button below, read our rules, and solve the CAPTCHA. [Read Group Rules](buttonurl://t.me/MissRose_bot?start=rules)"
+    }
+  },
+  "goodbye": {},
+  "rules": {},
+  "filters": {},
+  "notes": {},
+  "locks": {},
+  "logchannel": {},
+  "antiflood": {}
+}
