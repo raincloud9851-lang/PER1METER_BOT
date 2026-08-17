@@ -89,23 +89,25 @@ async def extract_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # === AI FUNCTIONS ===
 async def call_gemini(prompt: str) -> str:
-    response = await asyncio.to_thread(
-        ai_client.models.generate_content,
+    chat = ai_client.chats.create(
         model="gemini-3.6-flash",
-        contents=prompt,
         config={
             "system_instruction": "You are PER1METER_BOT, a helpful, security-focused group assistant and moderator."
         }
+    )
+    response = await asyncio.to_thread(
+        chat.send_message,
+        prompt
     )
     return response.text
 
 async def is_message_bad(text: str) -> bool:
     prompt = f"Is this message spam, hate speech, scam, NSFW, or against Telegram group rules? Reply ONLY 'YES' or 'NO'. Message: {text}"
     try:
+        chat = ai_client.chats.create(model="gemini-3.6-flash")
         response = await asyncio.to_thread(
-            ai_client.models.generate_content,
-            model="gemini-3.6-flash",
-            contents=prompt
+            chat.send_message,
+            prompt
         )
         return "YES" in response.text.strip().upper()
     except Exception:
