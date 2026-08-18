@@ -14,8 +14,8 @@ from telegram.ext import (
 )
 
 # === CONFIGURATION ===
-TOKEN = "8476370146:AAGc3TAfVxXHMPrIF4OPrWsE5Dbt2C18-Nc"
-GEMINI_KEY = "AQ.Ab8RN6Kspo443I3TdLyGdXicO_CNkh1ZY2VfxsZmsSVVQRFMdg"
+TOKEN = os.getenv("TOKEN")
+GEMINI_KEY = os.getenv("GEMINI_KEY")
 BOT_USERNAME = "PER1METER_BOT"
 DATA_FILE = "bot_data.json"
 
